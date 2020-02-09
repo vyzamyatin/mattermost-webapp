@@ -4,7 +4,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getConfig, getLicense} from 'mattermost-redux/selectors/entities/general';
-import {getCurrentTeamId} from 'mattermost-redux/selectors/entities/teams';
+import {getCurrentTeamId,getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
 
 import {getCurrentChannel, getCurrentChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup} from 'mattermost-redux/selectors/entities/channels';
 import {getCurrentUserId, isCurrentUserSystemAdmin, getStatusForUserId} from 'mattermost-redux/selectors/entities/users';
@@ -114,7 +114,7 @@ function makeMapStateToProps() {
             enableEmojiPicker,
             enableGifPicker,
             enableConfirmNotificationsToChannel,
-            maxPostSize: parseInt(config.MaxPostSize, 10) || Constants.DEFAULT_CHARACTER_LIMIT,
+            maxPostSize: getCurrentTeam(state).display_name == "DBA" ? 3500 : parseInt(config.MaxPostSize, 10) || Constants.DEFAULT_CHARACTER_LIMIT,
             userIsOutOfOffice,
             rhsExpanded: getIsRhsExpanded(state),
             emojiMap: getEmojiMap(state),

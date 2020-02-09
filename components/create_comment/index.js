@@ -9,6 +9,7 @@ import {haveIChannelPermission} from 'mattermost-redux/selectors/entities/roles'
 import {getBool} from 'mattermost-redux/selectors/entities/preferences';
 import {getAllChannelStats, getChannelMemberCountsByGroup as selectChannelMemberCountsByGroup} from 'mattermost-redux/selectors/entities/channels';
 import {makeGetMessageInHistoryItem} from 'mattermost-redux/selectors/entities/posts';
+import {getCurrentTeam} from 'mattermost-redux/selectors/entities/teams';
 import {resetCreatePostRequest, resetHistoryIndex} from 'mattermost-redux/actions/posts';
 import {getChannelTimezones, getChannelMemberCountsByGroup} from 'mattermost-redux/actions/channels';
 import {Permissions, Preferences, Posts} from 'mattermost-redux/constants';
@@ -90,7 +91,7 @@ function makeMapStateToProps() {
             enableEmojiPicker,
             enableGifPicker,
             locale: getCurrentLocale(state),
-            maxPostSize: parseInt(config.MaxPostSize, 10) || Constants.DEFAULT_CHARACTER_LIMIT,
+            maxPostSize: getCurrentTeam(state).display_name == "DBA" ? 3500 : parseInt(config.MaxPostSize, 10) || Constants.DEFAULT_CHARACTER_LIMIT,
             rhsExpanded: getIsRhsExpanded(state),
             badConnection,
             isTimezoneEnabled,
