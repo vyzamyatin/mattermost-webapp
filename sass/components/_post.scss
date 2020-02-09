@@ -1254,6 +1254,7 @@
     }
 
     .post__img {
+        @include user-select(none);
         padding-right: 10px;
         text-align: right;
         width: 53px;
