@@ -1309,6 +1309,7 @@
     }
 
     .post__img {
+        @include user-select(none);
         padding-right: 10px; // if this changes, the padding of post-pre-header__icons-container needs to be adjusted accordingly
         text-align: right;
         width: 53px; // if this changes, the width of post-pre-header__icons-container needs to be adjusted accordingly
