@@ -6,6 +6,7 @@ import {injectIntl} from 'react-intl';
 import moment from 'moment-timezone';
 
 type Props = {
+    withDate?: boolean;
 
     /*
      * The time to display
@@ -33,6 +34,7 @@ type Props = {
 class LocalDateTime extends React.PureComponent<Props> {
     public render() {
         const {
+            withDate,
             enableTimezone,
             eventTime,
             timeZone,
@@ -53,6 +55,11 @@ class LocalDateTime extends React.PureComponent<Props> {
             ...timezoneProps,
             hour12: !useMilitaryTime,
         };
+        if ( withDate ) {
+            options.day = 'numeric';
+            options.month = 'numeric';
+            options.year = 'numeric';
+        }
         let formattedTime = this.props.intl.formatTime(date, options);
 
         if (formattedTime === String(date)) {

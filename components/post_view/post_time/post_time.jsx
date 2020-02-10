@@ -13,6 +13,7 @@ import LocalDateTime from 'components/local_date_time';
 
 export default class PostTime extends React.PureComponent {
     static propTypes = {
+        showTimeWithDate: PropTypes.bool,
 
         /*
          * If true, time will be rendered as a permalink to the post
@@ -48,6 +49,7 @@ export default class PostTime extends React.PureComponent {
         const localDateTime = (
             <LocalDateTime
                 eventTime={this.props.eventTime}
+                withDate={this.props.showTimeWithDate}
             />
         );
         if (isMobile() || !this.props.isPermalink) {

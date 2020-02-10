@@ -292,6 +292,7 @@ export default class Post extends React.PureComponent {
 
         let profilePic;
         const hideProfilePicture = this.hasSameRoot(this.props) && this.props.consecutivePostByUser && (!post.root_id && this.props.replyCount === 0) && !fromBot;
+        const showTimeWithDate = !(this.hasSameRoot(this.props) && this.props.consecutivePostByUser || this.props.compactDisplay);
         if (!hideProfilePicture) {
             profilePic = (
                 <PostProfilePicture
@@ -353,6 +354,7 @@ export default class Post extends React.PureComponent {
                                 isFirstReply={this.props.isFirstReply}
                                 replyCount={this.props.replyCount}
                                 showTimeWithoutHover={!hideProfilePicture}
+                                showTimeWithDate={showTimeWithDate}
                                 hover={this.state.hover || this.state.a11yActive}
                             />
                             <PostBody
