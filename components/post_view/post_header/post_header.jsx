@@ -14,6 +14,7 @@ import Badge from 'components/widgets/badges/badge';
 
 export default class PostHeader extends React.PureComponent {
     static propTypes = {
+        showTimeWithDate: PropTypes.bool,
 
         /*
          * The post to render the header for
@@ -181,6 +182,7 @@ export default class PostHeader extends React.PureComponent {
                         replyCount={this.props.replyCount}
                         isFirstReply={this.props.isFirstReply}
                         showTimeWithoutHover={this.props.showTimeWithoutHover}
+                        showTimeWithDate={this.props.showTimeWithDate}
                         hover={this.props.hover}
                         isLastPost={this.props.isLastPost}
                     />
