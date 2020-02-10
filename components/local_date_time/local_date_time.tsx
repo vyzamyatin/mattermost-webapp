@@ -11,6 +11,7 @@ import moment from 'moment-timezone';
 const supportsHourCycle = Boolean(((new Intl.DateTimeFormat('en-US', {hour: 'numeric'})).resolvedOptions() as {hourCycle?: string}).hourCycle);
 
 type Props = {
+    withDate?: boolean;
 
     /*
      * The time to display
@@ -38,6 +39,7 @@ type Props = {
 class LocalDateTime extends React.PureComponent<Props> {
     public render() {
         const {
+            withDate,
             enableTimezone,
             eventTime,
             timeZone,
@@ -65,6 +67,11 @@ class LocalDateTime extends React.PureComponent<Props> {
             hour: 'numeric',
             minute: 'numeric',
         };
+        if ( withDate ) {
+            options.day = 'numeric';
+            options.month = 'numeric';
+            options.year = 'numeric';
+        }
         if (enableTimezone && timeZone) {
             options.timeZone = timeZone;
         }
