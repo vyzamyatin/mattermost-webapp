@@ -32,7 +32,7 @@
     "localforage": "1.7.3",
     "localforage-observable": "2.0.1",
     "mark.js": "8.11.1",
-    "marked": "github:mattermost/marked#87769262aa02e1784570f61f4f962050e07cc335",
+    "marked": "github:vyzamyatin/marked#c0822206d44d7d8cb8af142cb8c6aba601d1f1db",
     "mattermost-redux": "github:mattermost/mattermost-redux#eb1b73ec456516797a3bcd3255cc46d8e1db96d7",
     "moment-timezone": "0.5.31",
     "p-queue": "6.6.1",
