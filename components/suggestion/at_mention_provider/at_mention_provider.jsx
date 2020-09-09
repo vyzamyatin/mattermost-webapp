@@ -168,6 +168,9 @@ export default class AtMentionProvider extends Provider {
     // remoteNonMembers matches users listed as not in the channel by the server.
     // listed in the channel from local results.
     remoteNonMembers() {
+        return [];
+
+        /*
         if (!this.data) {
             return [];
         }
@@ -178,6 +181,7 @@ export default class AtMentionProvider extends Provider {
                 type: Constants.MENTION_NONMEMBERS,
                 ...profile,
             }));
+        */
     }
 
     items() {
