@@ -25,6 +25,7 @@ import PostTime from 'components/post_view/post_time';
 import InfoSmallIcon from 'components/widgets/icons/info_small_icon';
 
 type Props = {
+    showTimeWithDate: boolean;
 
     /**
      * The post to render the info for
@@ -378,6 +379,7 @@ export default class PostInfo extends React.PureComponent<Props, State> {
                     isPermalink={isPermalink}
                     eventTime={post.create_at}
                     postId={post.id}
+                    showTimeWithDate={this.props.showTimeWithDate}
                 />
             );
         }

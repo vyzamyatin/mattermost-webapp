@@ -4148,7 +4148,7 @@
   "threading.threadMenu.unfollow": "Отключить отслеживание треда",
   "threading.threadMenu.unfollowExtra": "Вы не будете уведомлены об ответах",
   "threading.threadMenu.unsave": "Убрать из сохраненных",
-  "timestamp.datetime": "{relativeOrDate} в {time}",
+  "timestamp.datetime": "{relativeOrDate}, {time}",
   "tutorial_intro.allSet": "Теперь всё готово",
   "tutorial_intro.end": "Нажмите “Далее” для входа в {channel}. Это первый канал, который пользователи команды видят после входа. Используйте его для общения всей команды.",
   "tutorial_intro.invite": "Пригласить товарищей",
