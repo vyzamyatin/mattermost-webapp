@@ -1419,6 +1419,10 @@
         width: 100%;
         word-wrap: break-word;
 
+        &.post--deleted {
+            text-decoration: line-through !important;
+        }
+
         &.post--ephemeral {
             padding-right: 20px !important;
         }
