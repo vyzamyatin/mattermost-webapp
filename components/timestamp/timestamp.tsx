@@ -147,8 +147,8 @@ class Timestamp extends PureComponent<Props, State> {
 
         // fixed
         year: 'numeric',
-        month: 'long',
-        day: '2-digit',
+        month: 'numeric',
+        day: 'numeric',
         weekday: 'long',
         hour: 'numeric',
         minute: 'numeric',
@@ -224,7 +224,7 @@ class Timestamp extends PureComponent<Props, State> {
     formatDateTime(value: Date, format: DateTimeOptions): string {
         const {timeZone, intl: {locale}} = this.props;
 
-        return (new Intl.DateTimeFormat(locale, {timeZone, ...format})).format(value);
+        return (new Intl.DateTimeFormat('ru', {timeZone, ...format})).format(value);
     }
 
     static momentTime(value: Moment, {hour, minute, hourCycle, hour12}: DateTimeOptions): string | undefined {
@@ -235,16 +235,17 @@ class Timestamp extends PureComponent<Props, State> {
     }
 
     static momentDate(value: Moment, {weekday, day, month, year}: DateTimeOptions): string | undefined {
-        if (weekday && day && month && year) {
-            return value.format('dddd, MMMM DD, YYYY');
-        } else if (day && month && year) {
-            return value.format('MMMM DD, YYYY');
-        } else if (day && month) {
-            return value.format('MMMM DD');
-        } else if (weekday) {
-            return value.format('dddd');
-        }
-        return undefined;
+        // if (weekday && day && month && year) {
+        //     return value.format('dddd, MMMM DD, YYYY');
+        // } else if (day && month && year) {
+        //     return value.format('MMMM DD, YYYY');
+        // } else if (day && month) {
+        //     return value.format('MMMM DD');
+        // } else if (weekday) {
+        //     return value.format('dddd');
+        // }
+        // return undefined;
+        return value.format('DD.MM.YYYY');
     }
 
     autoRange(value: Date, ranges: Props['ranges'] = this.props.ranges): DisplayAs {
@@ -308,12 +309,12 @@ class Timestamp extends PureComponent<Props, State> {
             minute,
             timeZone,
             useDate = (): ResolvedFormats['date'] => {
-                if (isWithin(value, this.state.now, timeZone, 'day', -6)) {
-                    return {weekday};
-                }
-                if (isSameYear(value)) {
-                    return {day, month};
-                }
+                // if (isWithin(value, this.state.now, timeZone, 'day', -6)) {
+                //     return {weekday};
+                // }
+                // if (isSameYear(value)) {
+                //     return {day, month};
+                // }
 
                 return {year, month, day};
             },
@@ -346,7 +347,7 @@ class Timestamp extends PureComponent<Props, State> {
         return (relative || date) && time ? (
             <FormattedMessage
                 id='timestamp.datetime'
-                defaultMessage='{relativeOrDate} at {time}'
+                defaultMessage='{relativeOrDate}, {time}'
                 values={{
                     relativeOrDate: relative || date,
                     time,

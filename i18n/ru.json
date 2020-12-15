@@ -3574,7 +3574,7 @@
   "textbox.preview": "Предварительный просмотр",
   "textbox.quote": ">цитата",
   "textbox.strike": "зачеркнутый",
-  "timestamp.datetime": "{relativeOrDate} в {time}",
+  "timestamp.datetime": "{relativeOrDate}, {time}",
   "tutorial_intro.allSet": "Теперь всё готово",
   "tutorial_intro.end": "Нажмите “Далее” для входа в {channel}. Это первый канал, который пользователи команды видят после входа. Используйте его для общения всей команды.",
   "tutorial_intro.invite": "Пригласить товарищей",

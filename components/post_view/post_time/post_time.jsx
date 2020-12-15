@@ -22,6 +22,7 @@ const POST_TOOLTIP_RANGES = [
 
 export default class PostTime extends React.PureComponent {
     static propTypes = {
+        showTimeWithDate: PropTypes.bool,
 
         /*
          * If true, time will be rendered as a permalink to the post
@@ -45,6 +46,7 @@ export default class PostTime extends React.PureComponent {
     static defaultProps = {
         eventTime: 0,
         location: Locations.CENTER,
+        showTimeWithDate: false,
     };
 
     handleClick = () => {
@@ -66,7 +68,7 @@ export default class PostTime extends React.PureComponent {
             <Timestamp
                 value={eventTime}
                 className='post__time'
-                useDate={false}
+                useDate={this.props.showTimeWithDate}
             />
         );
 
