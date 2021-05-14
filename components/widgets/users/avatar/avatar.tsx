@@ -38,7 +38,7 @@ const Avatar = ({
         <img
             {...attrs}
             className={classes}
-            alt={`${username || 'user'} profile image`}
+            alt=''
             src={url}
         />
     );
